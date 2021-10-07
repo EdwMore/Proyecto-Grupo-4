@@ -4,12 +4,30 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styleRegistro.css')}}">
     <title>Registro</title>
 </head>
 <body>
-    <div class="titulo">
-        <img src="{{ url_for('static', filename='images/logo.png')}}">
+    <div class="contenedor">
+        <div class="contenedor__imagen">
+            <img src="{{ url_for('static', filename='images/logo.png')}}">
+        </div>
         <h1>Restaurante...</h1>
     </div>
+    <form action="" method="post" class="formulario">
+        <label>Nombre</label>
+        <input type="text" name="nombre" class="formulario__datos">
+        <label>Correo Electrónico</label>
+        <input type="email" name="email" class="formulario__datos">
+        <label>Contraseña</label>
+        <input type="password" name="password" class="formulario__datos">
+        <label>Confirmar Contraseña</label>
+        <input type="password" name="password" class="formulario__datos">
+        <input type="submit" value="Registrarme" class="formulario__enviar" src="#">
+    </form>
+    <div class="contenedor2">
+        <h4 class="contenedor2__cuenta">¿Ya tienes cuenta?</h4>
+    </div>
+    <button class="boton" type="submit">Inicia Sesion</button>
 </body>
 </html>

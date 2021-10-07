@@ -1,0 +1,116 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Ubuntu', sans-serif;
+}
+
+.contenedor {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 5em;
+    margin-top: 5px;
+    color: #000;
+}
+
+.contenedor__imagen {
+    height: 4em;
+    margin-right: 10px;
+    display: inline-block;
+    
+}
+
+.contenedor__imagen img {
+    width: fit-content;
+    height: 100%;
+    object-fit: contain;
+}
+
+h1 {
+    display: inline;
+    letter-spacing: .5px;
+    text-transform: uppercase;
+}
+
+.formulario {
+    border: 2px solid #000;
+    margin: 10px auto;
+    padding: 30px 70px;
+    font-weight: bold;
+    border-radius: 20px;
+    background: #8d4a84;
+    width: 60%;
+}
+
+.formulario label {
+    color: #000;
+    position: relative;
+    left: 8px;
+    text-transform: uppercase;
+    font-size: .9rem;
+}
+
+.formulario__datos {
+    width: 100%;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    height: 3rem;
+    border-radius: 10px;
+    padding-left: 5.9px;
+    font-size: 1rem;
+    border-style: none;
+}
+
+.formulario__enviar {
+    margin: auto;
+    margin-top: 20px;
+    display: block;
+    width: 200px;
+    height: 50px;
+    border-style: none;
+    color: #fff;
+    background: #000;
+    border: 1px solid white;
+    border-radius: 10px;
+    transition: .5s;
+}
+
+.formulario__enviar:hover {
+    background: #fff;
+    color: #000;
+    border-color: #000;
+    box-shadow: 5px 5px 10px #fff;
+}
+
+.contenedor2 {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.contenedor2__cuenta {
+    font-size: 1.3rem;
+}
+.boton {
+    display: block;
+    margin: auto;
+    width: 250px;
+    height: 40px;
+    color: #000;
+    background: #fff;
+    border: 1px solid black;
+    border-radius: 10px;
+    font-size: 1.2em;
+    transition: .5s;
+} 
+
+.boton:hover {
+    background: #000;
+    color: #fff;
+    border-color: #fff;
+    box-shadow: 5px 5px 10px #000;
+}

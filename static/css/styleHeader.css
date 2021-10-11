@@ -69,11 +69,7 @@
     transition: .5s;
 }
 
-.nav__li:hover span {
+.nav__li:hover span,
+.active span {
     right: 0;
-}
-
-.nav__li:hover,
-.nav__li:hover a {
-    transition: .5s;
 }

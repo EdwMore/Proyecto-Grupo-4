@@ -1,17 +1,9 @@
 {% extends 'Header.html' %}
 {% block contenido %}
 <div class="conten-prin">
-    <div class="contenedor animacion">
-        <h2>¿Ya tienes una cuenta?</h2>
-        <input type="submit" value="Inicia Sesion" class="move">
-    </div>
-    <div class="conten-form aparecer">
+    <div class="conten-form aparecer-Sesion">
         <form action="#" class="formulario">
-            <h2 class="title">Sign in</h2>
-            <div class="input-field">
-                <i class="fas fa-user"></i>
-                {{ form.nombre(placeholder="Ingresa tu nombre")}}
-            </div>
+            <h2 class="title">Inicia Sesion</h2>
             <div class="input-field">
                 <i class="fas fa-user-circle"></i>
                 {{ form.usuario(placeholder="Nombre de usuario")}}
@@ -22,6 +14,10 @@
             </div>
             {{ form.enviar(class="btn solid")}}
         </form>
+    </div>
+    <div class="contenedor animacion">
+        <h2>¿No tienes cuenta?</h2>
+        <input type="submit" value="Crea tu cuenta" class="move">
     </div>
 </div>
 {% endblock %}

@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../static/css/styleHeader.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styleHeader.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styleRegistro.css')}}">
     <script src="https://kit.fontawesome.com/f9185ec6ba.js" crossorigin="anonymous"></script>
     <title>Document</title>
 </head>
@@ -13,7 +14,7 @@
         <nav class="nav">
             <div class="nav__logo">
                 <a href="#" class="nav__logo-a">
-                    <img src="../static/images/logoRestaurant.png" alt="Logo">
+                    <img src="{{ url_for('static', filename='images/logoRestaurant.png')}}" alt="Logo">
                     <h3 class="nav__logo-titulo">Restaurante</h3>
                 </a>
             </div>
@@ -32,19 +33,21 @@
                 </li>
                 <li class="nav__li">
                     <i class="fas fa-user-plus"></i>
-                    <a href="#">Registrate
+                    <a href="{{ url_for('registro')}}">Registrate
                         <span class="linea"></span>
                     </a>
                 </li>
                 <li class="nav__li">
                     <i class="fas fa-sign-in-alt"></i>
-                    <a href="#">Inicia Sesion
+                    <a href="{{ url_for('login')}}">Inicia Sesion
                         <span class="linea"></span>
                     </a>
                 </li>
             </ul>
         </nav>
     </header>
-    <script src="../static/js/jsHeader.js"></script>
+    {% block contenido %}
+    {% endblock %}
+    <script src="{{ url_for('static', filename='js/animaciones.js')}}"></script>
 </body>
 </html>

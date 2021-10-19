@@ -4,12 +4,13 @@ from wtforms.fields import StringField
 from wtforms.fields.simple import PasswordField, SubmitField
 
 class FormRegistro(FlaskForm):
-    nombre = StringField(validators=[validators.required(), validators.length(min=20)])
-    usuario = StringField(validators=[validators.required(), validators.length(min=15, max=50)])
-    contrasena = PasswordField(validators=[validators.required(), validators.length(min=10)])
+    nombre = StringField()
+    usuario = StringField()
+    correo = StringField()
+    contrasena = PasswordField()
     enviar = SubmitField('Registrarme')
 
 class FormLogin(FlaskForm):
-    usuario = StringField(validators=[validators.required()])
-    contrasena = PasswordField(validators=[validators.required()])
+    usuario = StringField()
+    contrasena = PasswordField()
     enviar = SubmitField('Iniciar Sesion')

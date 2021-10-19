@@ -6,5 +6,3 @@ for (let i = 0; i < url.length; i++) {
         url[i].className = 'active';
     }
 }
-
-b

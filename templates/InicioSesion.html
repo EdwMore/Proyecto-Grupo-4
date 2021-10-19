@@ -2,7 +2,8 @@
 {% block contenido %}
 <div class="conten-prin">
     <div class="conten-form aparecer-Sesion">
-        <form action="#" class="formulario">
+        <form action="{{ url_for('login')}}" method="POST" class="formulario">
+            {{ form.hidden_tag() }}
             <h2 class="title">Inicia Sesion</h2>
             <div class="input-field">
                 <i class="fas fa-user-circle"></i>
@@ -13,6 +14,9 @@
                 {{ form.contrasena(placeholder="Contraseña")}}
             </div>
             {{ form.enviar(class="btn solid")}}
+            {% if mensaje %}
+            <h3 class="title">{{ mensaje }}</h3>
+            {% endif %}
         </form>
     </div>
     <div class="contenedor animacion">

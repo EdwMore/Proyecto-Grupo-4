@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/styleHeader.css')}}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/styleRegistro.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styleInicio.css')}}">
     <script src="https://kit.fontawesome.com/f9185ec6ba.js" crossorigin="anonymous"></script>
     <title>Document</title>
 </head>
@@ -13,33 +14,33 @@
     <header>
         <nav class="nav">
             <div class="nav__logo">
-                <a href="#" class="nav__logo-a">
+                <a href="{{ url_for('Inicio')}}" class="nav__logo-a">
                     <img src="{{ url_for('static', filename='images/logoRestaurant.png')}}" alt="Logo">
-                    <h3 class="nav__logo-titulo">Restaurante</h3>
+                    <h3 class="nav__logo-titulo">Jamba Juice</h3>
                 </a>
             </div>
             <ul class="nav__ul">
                 <li class="nav__li">
                     <i class="fas fa-user-friends"></i>
-                    <a href="#">Sobre Nosotros
+                    <a href="#" class="enlaces">Sobre Nosotros
                         <span class="linea"></span>
                     </a>
                 </li>
                 <li class="nav__li">
                     <i class="fas fa-address-book"></i>
-                    <a href="#">Contactanos
+                    <a href="#" class="enlaces">Contactanos
                         <span class="linea"></span>
                     </a>
                 </li>
                 <li class="nav__li">
                     <i class="fas fa-user-plus"></i>
-                    <a href="{{ url_for('registro')}}">Registrate
+                    <a href="{{ url_for('registro')}}" class="enlaces">Registrate
                         <span class="linea"></span>
                     </a>
                 </li>
                 <li class="nav__li">
                     <i class="fas fa-sign-in-alt"></i>
-                    <a href="{{ url_for('login')}}">Inicia Sesion
+                    <a href="{{ url_for('login')}}" class="enlaces">Inicia Sesion
                         <span class="linea"></span>
                     </a>
                 </li>

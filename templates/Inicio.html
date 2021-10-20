@@ -1,0 +1,44 @@
+{% extends 'Header.html' %}
+{% block contenido %}
+<main>
+    <div class="container">
+        <div class="container__text">
+            <h2>¿Que vas a encontar aqui?</h2>
+            <p>
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Itaque esse placeat explicabo. Sint voluptatibus provident consequuntur adipisci culpa dolor, ratione facilis accusantium autem nulla nihil officia labore, iure veniam alias.
+            </p>
+            <a href="{{ url_for('registro')}}">Unete</a>
+        </div>
+        <div class="container__img">
+            <img src="{{ url_for('static', filename='images/bebida3.png')}}" alt="">
+        </div>
+    </div>
+    <h2 class="mejores">Los mejores jugos del momento</h2>
+    <div class="mejores-jugos">
+        <div class="container__jugos">
+            <div class="caja">
+                <h2 class="nombre">Jugo Kiwi</h2>
+                <a href="#" class="comprar">Comprar</a>
+                <div class="circulo"></div>
+                <img src="{{ url_for('static', filename='images/bebida.png')}}" class="producto">
+            </div>
+        </div>
+        <div class="container__jugos">
+            <div class="caja">
+                <h2 class="nombre">Jugo Kiwi</h2>
+                <a href="#" class="comprar">Comprar</a>
+                <div class="circulo"></div>
+                <img src="{{ url_for('static', filename='images/bebida2.png')}}" class="producto">
+            </div>
+        </div>
+        <div class="container__jugos">
+            <div class="caja">
+                <h2 class="nombre">Jugo Kiwi</h2>
+                <a href="#" class="comprar">Comprar</a>
+                <div class="circulo"></div>
+                <img src="{{ url_for('static', filename='images/bebida4.png')}}" class="producto">
+            </div>
+        </div>
+    </div>
+</main>
+{% endblock %}

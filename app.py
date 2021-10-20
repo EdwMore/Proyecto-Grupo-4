@@ -29,9 +29,12 @@ def UsuarioAutentico():
     else: 
         g.user = usuario.cargar(user_id)
 
+@app.route('/inicio/')
+def Inicio():
+    return render_template('Inicio.html')
 
 @app.route('/')
-def inicio():
+def Header():
     return render_template('Header.html')
 
 @app.route('/registro/', methods=["GET", "POST"])
@@ -42,7 +45,6 @@ def registro():
     else:
         formulario = FormRegistro(request.form)
         if formulario.validate_on_submit:
-            print("me valido")
             ob_usuario = usuario(formulario.nombre.data, formulario.usuario.data, formulario.correo.data, formulario.contrasena.data)
             if ob_usuario.insertar():
                 return render_template('Registro.html', exito="Se ha registrado su cuenta.")
@@ -63,7 +65,7 @@ def login():
             if ob_usuario.verificar():
                 session.clear
                 session['user_id'] = ob_usuario.usuario
-                return redirect(url_for('inicio'))    
+                return redirect(url_for('Inicio'))    
         return render_template('InicioSesion.html', mensaje="Usuario o contraseña no valido.")
 
 @app.route('/logout/')

@@ -63,9 +63,9 @@
     }
 }
 
-.mejores {
+.titulo {
     margin-top: 10rem;
-    margin-bottom: 5rem;
+    margin-bottom: 3rem;
     text-align: center;
     text-transform: uppercase;
     letter-spacing: 1px;
@@ -73,133 +73,180 @@
 
 /* Mejores productos */
 
-.mejores-jugos {
+.mejores {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 50vh;
-    
-}
-
-.container__jugos {
-    position: relative;
-    display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
     align-items: center;
     flex-wrap: wrap;
-    width: 1200px;
-    transform-style: preserve-3d;
+    min-height: 80vh;
 }
 
-.container__jugos .caja {
+.container-mejores {
     position: relative;
-    width: 300px;
-    height: 400px;
-    margin: 40px;
-    background: rgb(167, 32, 32);
+}
+
+.container-mejores .caja {
+    position: relative;
+    width: 320px;
+    height: 450px;
+    background: rgb(167, 35, 35);
     border-radius: 20px;
-    transform-style: preserve-3d;
+    overflow: hidden;
+    border: 2px solid rgb(167, 32, 32);
 }
 
-.container__jugos .caja::before {
-    content: 'JAMBA';
-    position: absolute;
-    top: 20px;
-    left: 17px;
-    font-size: 4.5em;
-    font-weight: 900;
-    color: #fff;
-    font-style: italic;
-    opacity: 0;
-    transition: 0.5s;
-}
-
-.container__jugos .caja::after {
-    content: 'JUICE';
-    position: absolute;
-    bottom: 20px;
-    right: 68px;
-    font-size: 3.5em;
-    font-weight: 900;
-    color: #fff;
-    font-style: italic;
-    opacity: 0;
-    transition: 0.5s;
-}
-
-.container__jugos .caja:hover::before,
-.container__jugos .caja:hover::after {
-    opacity: 0.4;
-}
-
-.container__jugos .caja .nombre {
+.container-mejores .caja::before {
+    content: '';
     position: absolute;
     top: 0;
     left: 0;
-    text-align: center;
-    color: #fff;
     width: 100%;
-    transform-style: preserve-3d;
-    transform: translate3d(0, 0, 75px);
-    transition: 0.5s;
-    opacity: 0;
-    z-index: 1000;
+    height: 100%;
+    background: rgb(255, 255, 255);
+    clip-path: circle(150px at 80% 20%);
+    transition: .5s ease-in-out;
 }
 
-.container__jugos .caja:hover .nombre {
-    top: 25px;
-    opacity: 1;
-    z-index: 100;
+.container-mejores .caja:hover::before {
+    clip-path: circle(300px at 80% -20%);
 }
 
-.container__jugos .caja .comprar {
+.container-mejores .caja::after {
+    content: 'JAMBA';
     position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform-style: preserve-3d;
-    transform: translate3d(-50%, 0,75px);
-    color: #fff;
-    background: #333;
-    padding: 10px 25px;
-    border-radius: 30px;
-    text-decoration: none;
-    transition: 0.5s;
-    opacity: 0;
-    z-index: 1000;
+    top: 30%;
+    left: -20%;
+    font-size: 12em;
+    font-weight: 800;
+    font-style: italic;
+    color: rgba(255, 255, 255, 0.04);
 }
 
-.container__jugos .caja:hover .comprar {
-    bottom: 25px;
-    opacity: 1;
+.container-mejores .caja .imagenCaja {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10000;
+    width: 100%;
+    height: 220px;
+    transition: .5s;
 }
 
-.container__jugos .caja .circulo {
+.container-mejores .caja:hover .imagenCaja {
+    top: 0%;
+    transform: translateY(0%);
+}
+
+.container-mejores .caja .imagenCaja img {
     position: absolute;
     top: 50%;
     left: 50%;
+    transform: translate(-50%, -50%);
     width: 200px;
     height: 200px;
-    border-radius: 50%;
-    transition: 0.5s;
-    background: #fff;
-    transform-style: preserve-3d;
-    z-index: 30;
-    opacity: 1;
-    transform: translate3d(-50%, -50%, 50px);
+    object-fit: contain;
 }
 
-.container__jugos .caja .producto {
+.container-mejores .caja .contenidoCaja {
     position: absolute;
-    top: 50%;
-    left: 50%;
-    max-width: 300px;
-    z-index: 20;
-    transition: 0.5s;
-    transform-style: preserve-3d;
-    transform: translate3d(-50%, -50%, 50px);
-    z-index: 50;
+    bottom: 0;
+    width: 100%;
+    height: 100px;
+    text-align: center;
+    transition: 1s;
+    z-index: 10;
 }
 
-.container__jugos .caja:hover .producto {
-    transform: translate3d(-50%, -50%, 100px);
+.container-mejores .caja:hover .contenidoCaja {
+    height: 210px;
+}
+
+.container-mejores .caja .contenidoCaja h2 {
+    position: relative;
+    font-weight: 600;
+    letter-spacing: 1px;
+    color: #fff;
+}
+
+.container-mejores .caja .contenidoCaja .size,
+.container-mejores .caja .contenidoCaja .precio {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 8px 20px;
+    opacity: 0;
+    visibility: hidden;
+    transition: .5s;
+}
+
+.container-mejores .caja:hover .contenidoCaja .size {
+    opacity: 1;
+    visibility: visible;
+    transition-delay: .5s;
+}
+
+.container-mejores .caja:hover .contenidoCaja .precio {
+    opacity: 1;
+    visibility: visible;
+    transition-delay: .6s;
+}
+
+.container-mejores .caja .contenidoCaja .size h3,
+.container-mejores .caja .contenidoCaja .precio h3 {
+    color: #fff;
+    font-weight: 300;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-right: 10px;
+} 
+
+.container-mejores .caja .contenidoCaja .size span {
+    width: 26px;
+    height: 26px;
+    text-align: center;
+    line-height: 26px;
+    font-size: 14px;
+    display: inline-block;
+    color: #111;
+    background: #fff;
+    margin: 0 5px;
+    color: #111;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: .5s;
+}
+
+.container-mejores .caja .contenidoCaja .size span:hover {
+    background: rgb(192, 20, 20);
+    border: 1px solid #fff;
+}
+
+.container-mejores .caja .contenidoCaja .precio span {
+    width: 20px;
+    height: 20px;
+    color: #fff;
+    margin: 0 5px;
+}
+
+.container-mejores .caja .contenidoCaja a {
+    display: inline-block;
+    padding: 10px 20px;
+    background: #fff;
+    border-radius: 4px;
+    margin-top: 10px;
+    text-decoration: none;
+    font-weight: 600;
+    color: #111;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(50px);
+    transition: .5s;
+}
+
+.container-mejores .caja:hover .contenidoCaja a {
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(0px);
+    transition-delay: 0.75s;
 }

@@ -60,6 +60,8 @@ def login():
         formulario = FormLogin(request.form)
         if formulario.validate_on_submit:
             ob_usuario = usuario('', formulario.usuario.data, '', formulario.contrasena.data)
+        else: 
+            print('no')
         
         if not ob_usuario.usuario.__contains__("'") and not ob_usuario.password.__contains__("'"):
             if ob_usuario.verificar():

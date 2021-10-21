@@ -32,6 +32,7 @@
                         <span class="linea"></span>
                     </a>
                 </li>
+                {% if not g.user %}
                 <li class="nav__li">
                     <i class="fas fa-user-plus"></i>
                     <a href="{{ url_for('registro')}}" class="enlaces">Registrate
@@ -44,7 +45,7 @@
                         <span class="linea"></span>
                     </a>
                 </li>
-                {% if g.user %}
+                {% else %}
                     <li class="nav__li">
                         <i class="fas fa-sign-out-alt"></i>
                         <a href="{{ url_for('logout')}}">Salir

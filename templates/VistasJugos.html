@@ -1,0 +1,95 @@
+{% extends 'Header.html' %}
+{% block title %} {{ title }} {% endblock %}
+{% block style %} <link rel="stylesheet" href="{{ url_for('static', filename='css/styleJugos.css')}}"> {% endblock %}
+{% block contenido %}
+
+<div class="contenedor">
+    <div class="contenedor__mejores">
+        <h2> Mejores Jugos </h2>
+        <span>...</span>
+        <span>...</span>
+        <span>...</span>
+        <span>...</span>
+        <span>...</span>
+        <span>...</span>
+    </div>
+    <div class="contenedor__contenido">
+        <div class="contenedor__cajas">
+            <div class="contenedor__contenido-img">
+                <img src="{{ url_for('static', filename='images/bebida.png')}}">
+                <i class="fas fa-star"></i>
+            </div>
+            <div class="contenedor__contenido-descripcion">
+                <h2>Nombre Jugo</h2>
+                <h3>Descripcion:</h3>
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Incidunt numquam sint aperiam, explicabo adipisci sed culpa laboriosam rerum? Adipisci quam impedit temporibus similique exercitationem obcaecati soluta sed alias. Voluptas, est?</p>
+                <div class="size">
+                    <h3>Tamaño(oz) :</h3>
+                    <span>8</span>
+                    <span>12</span>
+                    <span>16</span>
+                    <span>20</span>
+                </div>
+                <div class="precio">
+                    <h3>Precio :</h3>
+                    <span>2.000</span>
+                </div>
+                <div class="comprar">
+                    <a href="#">Comprar</a>
+                </div>
+            </div>
+        </div>
+        <div class="contenedor__cajas">
+            <div class="contenedor__contenido-img">
+                <img src="{{ url_for('static', filename='images/bebida2.png')}}">
+                <i class="fas fa-star"></i>
+            </div>
+            <div class="contenedor__contenido-descripcion">
+                <h2>Nombre Jugo</h2>
+                <h3>Descripcion</h3>
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Incidunt numquam sint aperiam, explicabo adipisci sed culpa laboriosam rerum? Adipisci quam impedit temporibus similique exercitationem obcaecati soluta sed alias. Voluptas, est?</p>
+                <div class="size">
+                    <h3>Tamaño(oz) :</h3>
+                    <span>8</span>
+                    <span>12</span>
+                    <span>16</span>
+                    <span>20</span>
+                </div>
+                <div class="precio">
+                    <h3>Precio :</h3>
+                    <span>2.000</span>
+                </div>
+                <div class="comprar">
+                    <a href="#">Comprar</a>
+                </div>
+            </div>
+        </div>
+        <div class="contenedor__cajas">
+            <div class="contenedor__contenido-img">
+                <img src="{{ url_for('static', filename='images/bebida4.png')}}">
+                <i class="fas fa-star"></i>
+            </div>
+            <div class="contenedor__contenido-descripcion">
+                <h2>Nombre Jugo</h2>
+                <h3>Descripcion</h3>
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Incidunt numquam sint aperiam, explicabo adipisci sed culpa laboriosam rerum? Adipisci quam impedit temporibus similique exercitationem obcaecati soluta sed alias. Voluptas, est?</p>
+                <div class="size">
+                    <h3>Tamaño(oz) :</h3>
+                    <span>8</span>
+                    <span>12</span>
+                    <span>16</span>
+                    <span>20</span>
+                </div>
+                <div class="precio">
+                    <h3>Precio :</h3>
+                    <span>2.000</span>
+                </div>
+                <div class="comprar">
+                    <a href="#">Comprar</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+{% block scripts %}<script src="{{ url_for('static', filename='js/favoritos.js')}}"></script> {% endblock %}

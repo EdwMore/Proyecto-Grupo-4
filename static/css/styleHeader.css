@@ -7,20 +7,23 @@
     box-sizing: border-box;
 }
 
-header {
-    z-index: 100;
-}
-
 .nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
     background: rgb(167, 32, 32);
     height: 80px;
+    position: relative;
+    z-index: 1000;
 }
 
 .nav__logo {
     margin: 0 20px;
+}
+
+.nav__logo-titulo {
+    font-size: 1.3rem;
+    font-weight: bold;
 }
 
 .nav__logo-a {
@@ -77,3 +80,57 @@ header {
 .active span {
     right: 0;
 }
+
+/* Sub-menu */
+
+.sesion {
+    overflow: visible;
+    display: inline-block;
+    text-align: start;
+}
+
+.sesion > a {
+    padding: 28px 20px;
+    display: block;
+    font-size: 1.15rem;
+    font-weight: bold;
+}
+
+.sesion > a > i {
+    font-size: 1.5rem;
+    margin-left: 8px;
+}
+
+.sub-menu {
+    position: absolute;
+    right: 0;
+    width: 200px;
+    background: rgb(167, 32, 32);
+    text-align: end;
+    margin-right: 10px;
+    opacity: 0;
+    visibility: hidden;
+    z-index: 1000;
+    transition: .5s;
+}
+
+.sub-menu > li:nth-child(1) {
+    border-top: 2px solid #fff;
+}
+
+.sub-menu > li {
+    list-style: none;
+    padding: 20px 0;
+    border-bottom: 2px solid #fff;
+}
+
+.sub-menu > li > a {
+    display: block;
+    padding-right: 20px;
+}
+
+.nav__ul li:hover .sub-menu {
+    opacity: 1;
+    visibility: visible;
+}
+

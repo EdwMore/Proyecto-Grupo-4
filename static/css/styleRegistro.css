@@ -34,7 +34,14 @@ body {
     text-transform: uppercase;
     font-weight: 600;
     margin: 10px 0;
+    text-align: center;
+    line-height: 49px;
+    text-decoration: none;
     transition: background-color .4s;
+}
+
+.move:hover {
+    background-color: rgb(185, 45, 45);
 }
 
 .btn:hover {
@@ -48,7 +55,8 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    z-index: -1;
+    position: relative;
+    z-index: 500;
 }
 
 .conten-form {
@@ -62,7 +70,7 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 0 5rem;
+    width: 100%;
 }
 
 .title {
@@ -71,23 +79,62 @@ body {
     margin-bottom: 10px;
 }
 
+.filed-message {
+    max-width: 380px;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 80% 20%;
+    position: relative;
+}
+
+.filed-message .message {
+    align-self: flex-end;
+}
+
+.filed-message .message span {
+    display: none;
+}
+
+.filed-message .message .activo {
+    display: block;
+} 
+
 .input-field {
     max-width: 380px;
-    width: 150%;
+    width: 100%;
     height: 55px;
     background: #f0f0f0;
     margin: 10px 0;
     border-radius: 55px;
     display: grid;
-    grid-template-columns: 15% 85%;
+    grid-template-columns: 15% 70% 15%;
     padding: 0 .4rem;
     position: relative;
 }
 
-.input-field i {
+.input-field .validate {
     text-align: center;
     line-height: 55px;
+    color: rgb(21, 255, 0);
+    font-size: 1rem;
+    display: none;
+}
+
+.input-field .activo {
+    display: inline;
+}
+
+.input-field .error {
+    color: #bb2929;
+    display: inline;
+    
+}
+
+.input-field i {
     color: #acacac;
+    text-align: center;
+    line-height: 55px;
     font-size: 1.5rem;
 }
 
@@ -123,6 +170,7 @@ body {
 
 .btn:hover {
     background-color: rgb(228, 53, 53);
+    cursor: pointer;
 }
 
 .animacion {

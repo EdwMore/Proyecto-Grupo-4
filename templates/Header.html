@@ -4,11 +4,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='images/logoRestaurant.png')}}">
+    {% block style %} {% endblock %}
     <link rel="stylesheet" href="{{ url_for('static', filename='css/styleHeader.css')}}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/styleRegistro.css')}}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/styleInicio.css')}}">
     <script src="https://kit.fontawesome.com/f9185ec6ba.js" crossorigin="anonymous"></script>
-    <title>Document</title>
+    <title> {% block title %} {% endblock %} </title>
 </head>
 <body>
     <header>
@@ -20,37 +20,54 @@
                 </a>
             </div>
             <ul class="nav__ul">
-                <li class="nav__li">
-                    <i class="fas fa-user-friends"></i>
-                    <a href="#" class="enlaces">Sobre Nosotros
-                        <span class="linea"></span>
-                    </a>
-                </li>
-                <li class="nav__li">
-                    <i class="fas fa-address-book"></i>
-                    <a href="#" class="enlaces">Contactanos
-                        <span class="linea"></span>
-                    </a>
-                </li>
                 {% if not g.user %}
-                <li class="nav__li">
-                    <i class="fas fa-user-plus"></i>
-                    <a href="{{ url_for('registro')}}" class="enlaces">Registrate
-                        <span class="linea"></span>
-                    </a>
-                </li>
-                <li class="nav__li">
-                    <i class="fas fa-sign-in-alt"></i>
-                    <a href="{{ url_for('login')}}" class="enlaces">Inicia Sesion
-                        <span class="linea"></span>
-                    </a>
-                </li>
-                {% else %}
                     <li class="nav__li">
-                        <i class="fas fa-sign-out-alt"></i>
-                        <a href="{{ url_for('logout')}}">Salir
+                        <i class="fas fa-user-friends"></i>
+                        <a href="#" class="enlaces">Sobre Nosotros
                             <span class="linea"></span>
                         </a>
+                    </li>
+                    <li class="nav__li">
+                        <i class="fas fa-address-book"></i>
+                        <a href="#" class="enlaces">Contactanos
+                            <span class="linea"></span>
+                        </a>
+                    </li>                                               
+                    <li class="nav__li">
+                        <i class="fas fa-user-plus"></i>
+                        <a href="{{ url_for('registro')}}" class="enlaces">Registrate
+                            <span class="linea"></span>
+                        </a>
+                    </li>
+                    <li class="nav__li">
+                        <i class="fas fa-sign-in-alt"></i>
+                        <a href="{{ url_for('login')}}" class="enlaces">Inicia Sesion
+                            <span class="linea"></span>
+                        </a>
+                    </li>
+                {% else %}
+                    <li class="nav__li">
+                        <i class="fas fa-glass-martini"></i>
+                        <a href="{{ url_for('jugos')}}" class="enlaces">Ver Jugos
+                            <span class="linea"></span>
+                        </a>
+                    </li>
+                    <li class="nav__li sesion">
+                        <a href="#"> 
+                            {{ g.user.usuario }}
+                            <i class="fas fa-user-circle"></i>
+                        </a>
+                        <ul class="sub-menu">
+                            <li>
+                                <a href="#">Perfil</a>
+                            </li>
+                            <li>
+                                <a href="#">Lista de deseos</a>
+                            </li>
+                            <li>
+                                <a href="{{ url_for('logout')}}">Salir</a>
+                            </li>
+                        </ul>
                     </li>
                 {% endif %}
             </ul>
@@ -58,6 +75,7 @@
     </header>
     {% block contenido %}
     {% endblock %}
+    {% block scripts %} {% endblock %}
     <script src="{{ url_for('static', filename='js/animaciones.js')}}"></script>
 </body>
 </html>

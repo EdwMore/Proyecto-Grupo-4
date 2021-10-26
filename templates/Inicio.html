@@ -1,4 +1,6 @@
 {% extends 'Header.html' %}
+{% block title %} {{ title }} {% endblock %}
+{% block style %} <link rel="stylesheet" href="{{ url_for('static', filename='css/styleInicio.css')}}"> {% endblock %}
 {% block contenido %}
 <main>
     <div class="container">

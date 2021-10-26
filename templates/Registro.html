@@ -1,32 +1,62 @@
 {% extends 'Header.html' %}
+{% block title %} {{ title }} {% endblock %}
+{% block style %} <link rel="stylesheet" href="{{ url_for('static', filename='css/styleRegistro.css')}}"> {% endblock %}
 {% block contenido %}
 <div class="conten-prin">
     <div class="contenedor animacion">
         <h2>¿Ya tienes una cuenta?</h2>
-        <input type="submit" value="Inicia Sesion" class="move">
+        <a href="{{ url_for('login')}}" class="move">Inicio Sesion</a>
     </div>
     <div class="conten-form aparecer">
         {% if exito %}
             <h2 class="title">{{ exito }}</h2>
         {% else %}    
-            <form action="{{ url_for('registro')}}" method="POST" class="formulario">
+            <form action="{{ url_for('registro')}}" method="POST" class="formulario" id="formulario">
                 {{ form.hidden_tag() }}
                 <h2 class="title">Sign in</h2>
-                <div class="input-field">
-                    <i class="fas fa-user"></i>
-                    {{ form.nombre(placeholder="Ingresa tu nombre")}}
+                <!-- Nombre -->
+                <div class="filed-message" id="nombre">
+                    <div class="input-field">
+                        <i class="fas fa-user"></i>
+                        {{ form.nombre(placeholder="Ingresa tu nombre", class="input")}}
+                        <i class="fas fa-check validate"></i>
+                    </div>
+                    <div class="message">
+                        <span>El nombre solo puede contener letras.</span>
+                    </div>
                 </div>
-                <div class="input-field">
-                    <i class="fas fa-user-circle"></i>
-                    {{ form.correo(placeholder="Ingresa tu correo")}}
+                <!-- Correo -->
+                <div class="filed-message" id="correo">
+                    <div class="input-field">
+                        <i class="fas fa-user-circle"></i>
+                        {{ form.correo(placeholder="Ingresa tu correo", class="input")}}
+                        <i class="fas fa-check validate"></i>
+                    </div>
+                    <div class="message">
+                        <span>El correo solo puede contener letras, numeros, puntos, guiones y guion bajo.</span>
+                    </div>
                 </div>
-                <div class="input-field">
-                    <i class="fas fa-user-circle"></i>
-                    {{ form.usuario(placeholder="Nombre de usuario")}}
+                <!-- Usuario -->
+                <div class="filed-message" id="usuario">
+                    <div class="input-field">
+                        <i class="fas fa-user-circle"></i>
+                        {{ form.usuario(placeholder="Nombre de usuario", class="input")}}
+                        <i class="fas fa-check validate"></i>
+                    </div>
+                    <div class="message">
+                        <span>El usuario tiene que ser de 4 a 16 dígitos y solo puede contener numeros, letras y guion bajo.</span>
+                    </div>
                 </div>
-                <div class="input-field">
-                    <i class="fas fa-lock"></i>
-                    {{ form.contrasena(placeholder="Contraseña")}}
+                <!-- Contraseña -->
+                <div class="filed-message" id="contrasena">
+                    <div class="input-field">
+                        <i class="fas fa-lock"></i>
+                        {{ form.contrasena(placeholder="Contraseña", class="input")}}
+                        <i class="fas fa-check validate"></i>
+                    </div>
+                    <div class="message">
+                        <span>La contraseña tiene que ser de 4 a 12 dígitos.</span>
+                    </div>
                 </div>
                 {{ form.enviar(class="btn solid")}}
             </form>
@@ -34,3 +64,4 @@
     </div>
 </div>
 {% endblock %}
+{% block scripts %}<script src="{{ url_for('static', filename='js/validacionRegistro.js')}}"></script> {% endblock %}

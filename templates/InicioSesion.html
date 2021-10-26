@@ -1,4 +1,6 @@
 {% extends 'Header.html' %}
+{% block title %} {{ title }} {% endblock %}
+{% block style %} <link rel="stylesheet" href="{{ url_for('static', filename='css/styleRegistro.css')}}"> {% endblock %}
 {% block contenido %}
 <div class="conten-prin">
     <div class="conten-form aparecer-Sesion">
@@ -15,13 +17,13 @@
             </div>
             {{ form.enviar(class="btn solid")}}
             {% if mensaje %}
-            <h3 class="title">{{ mensaje }}</h3>
+                <h3 class="err-user">{{ mensaje }}</h3>
             {% endif %}
         </form>
     </div>
     <div class="contenedor animacion">
         <h2>¿No tienes cuenta?</h2>
-        <input type="submit" value="Crea tu cuenta" class="move">
+        <a href="{{ url_for('registro')}}" class="move">Crea cuenta</a>
     </div>
 </div>
 {% endblock %}

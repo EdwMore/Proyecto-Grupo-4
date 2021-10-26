@@ -8,7 +8,7 @@ from models import usuario
 
 app = Flask(__name__)
 
-app.config['SECRET_KEY'] = "bfc16d88366b75ca826ee9f01407d02e6628975c8b3faf358bcf508703d972b8"
+app.config['SECRET_KEY'] = "bfc16d88366b75ca826ee9f01407d02e6628975c8b3faf358bcf508703d972b8p"
 
 def loginRequerido(view):
     @functools.wraps(view)

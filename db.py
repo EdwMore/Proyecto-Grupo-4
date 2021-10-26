@@ -3,7 +3,7 @@ from sqlite3 import Error
 
 def conectar():
     try:
-        con = sqlite3.connect('db/Datos.db')
+        con = sqlite3.connect('db/datos.db')
         return con
     except Error as error:
         print(str(error))

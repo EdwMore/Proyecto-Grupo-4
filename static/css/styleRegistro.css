@@ -30,7 +30,7 @@ body {
     outline: none;
     border: 1px solid #f0f0f0;
     border-radius: 49px;
-    color: #fff;
+    color: var(--white);
     text-transform: uppercase;
     font-weight: 600;
     margin: 10px 0;
@@ -50,7 +50,7 @@ body {
 
 .contenedor {
     height: calc(100vh - 80px);
-    background: rgb(167, 32, 32);
+    background: var(--red);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -160,8 +160,8 @@ body {
     outline: none;
     border: none;
     border-radius: 49px;
-    background-color: rgb(167, 32, 32);
-    color: #fff;
+    background-color: var(--red);
+    color: var(--white);
     text-transform: uppercase;
     font-weight: 600;
     margin: 10px 0;

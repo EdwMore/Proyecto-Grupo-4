@@ -1,0 +1,192 @@
+{% extends 'Header.html' %}
+{% block title%} {{ title }} {% endblock %}
+{% block style %} <link rel="stylesheet" href="{{ url_for('static', filename='css/styleDashboard.css')}}"> {% endblock %}
+{% block contenido %}
+<div class="container">
+    <div class="navegation">
+        <ul>
+            <li>
+                <a href="#">
+                    <span class="icon"><i class="fas fa-mug-hot"></i></span>
+                    <span class="title">Jamba Juice</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <span class="icon"><i class="fas fa-home"></i></span>
+                    <span class="title">Dashboard</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <span class="icon"><i class="fas fa-users"></i></span>
+                    <span class="title">Usuarios</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <span class="icon"><i class="far fa-comment"></i></span>
+                    <span class="title">Mensajes</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <span class="icon"><i class="fas fa-question"></i></span>
+                    <span class="title">Ayuda</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <span class="icon"><i class="fas fa-cog"></i></span>
+                    <span class="title">Configuracion</span>
+                </a>
+            </li>
+            <li>
+                <a href="{{ url_for('logout')}}">
+                    <span class="icon"><i class="fas fa-sign-in-alt"></i></span>
+                    <span class="title">Salir</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <!-- Main -->
+    <div class="main">
+        <div class="topbar">
+            <div class="toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+            <!-- Search -->
+            <div class="search">
+                <label>
+                    <input type="text" placeholder="Search here">
+                    <i class="fas fa-search"></i>
+                </label>
+            </div>
+            <!-- User -->
+            <div class="nameUser">
+                <span>{{ g.user.usuario }}</span>
+                <div class="user">
+                    <img src="{{ url_for('static', filename='images/user.jpg')}}" >
+                </div>
+            </div>
+        </div>
+
+        <!-- cards -->
+
+        <div class="cardBox">
+            <div class="card">
+                <div>
+                    <div class="numbers">1,504</div>
+                    <div class="cardName">Visitas</div>
+                </div>
+                <div class="iconBx">
+                    <i class="far fa-eye"></i>
+                </div>
+            </div>
+            <div class="card">
+                <div>
+                    <div class="numbers">80</div>
+                    <div class="cardName">Ventas</div>
+                </div>
+                <div class="iconBx">
+                    <i class="fas fa-shopping-cart"></i>
+                </div>
+            </div>
+            <div class="card">
+                <div>
+                    <div class="numbers">284</div>
+                    <div class="cardName">Comentarios</div>
+                </div>
+                <div class="iconBx">
+                    <i class="far fa-comments"></i>
+                </div>
+            </div>
+            <div class="card">
+                <div>
+                    <div class="numbers">$7,842</div>
+                    <div class="cardName">Ganancias</div>
+                </div>
+                <div class="iconBx">
+                    <i class="fas fa-dollar-sign"></i>
+                </div>
+            </div>
+        </div>
+
+        <div class="details">
+
+            <!-- Order Detail list--> 
+
+            <div class="recentOrders">
+                <div class="cardHeader">
+                    <h2>Ordenes Recientes</h2>
+                    <a href="#" class="btn">Ver Todo</a>
+                </div>
+                <table>
+                    <thead>
+                        <tr>
+                            <td>Name</td>
+                            <td>Price</td>
+                            <td>Payment</td>
+                            <td>Status</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Star Refrigerator</td>
+                            <td>$1200</td>
+                            <td>Paid</td>
+                            <td><span class="status delivered">Delivered</span></td>
+                        </tr>
+                        <tr>
+                            <td>Television</td>
+                            <td>$2200</td>
+                            <td>Due</td>
+                            <td><span class="status inprogress">In Progress</span></td>
+                        </tr>
+                        <tr>
+                            <td>Cell Phone</td>
+                            <td>$4200</td>
+                            <td>Paid</td>
+                            <td><span class="status pending">Pending</span></td>
+                        </tr>
+                        <tr>
+                            <td>Play Station</td>
+                            <td>$5000</td>
+                            <td>Due</td>
+                            <td><span class="status return">Return</span></td>
+                        </tr>
+                        <tr>
+                            <td>Xbox</td>
+                            <td>$4000</td>
+                            <td>Paid</td>
+                            <td><span class="status delivered">delivered</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- New Customers -->
+
+            <div class="recentCustomers">
+                <div class="cardHeader">
+                    <h2>Usuarios Recientes</h2>
+                </div>
+                <table>
+                    {% for item in listaUsuarios %}
+                        {% if not item.usuario == "ElPepe" %}
+                            <tr>
+                                <td width="50px"><div class="imgBx"><img src="{{ url_for('static', filename='images/img1.jpg')}}"></div></td>
+                                <td><h4><span>{{ item.usuario }}</span></h4></td>
+                            </tr>
+                        {% endif %}
+                    {% endfor %}
+                </table>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+{% endblock %}
+{% block scripts %}<script src="{{ url_for('static', filename='js/dashboard.js')}}"></script> {% endblock %}

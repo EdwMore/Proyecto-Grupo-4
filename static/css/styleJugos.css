@@ -3,7 +3,7 @@
 }
 
 .contenedor__mejores {
-    background: #fff;
+    background: var(--white);
     margin-right: 10px;
     margin-left: 10px;
     margin-top: 10px;
@@ -27,7 +27,7 @@
     display: grid;
     grid-template-columns: 60% 40%;
     grid-template-rows: 60vh;
-    background: #fff;
+    background: var(--white);
     border-radius: 5px;
     margin-top: 10px;
     margin-right: 10px;
@@ -41,7 +41,7 @@
 .contenedor__contenido-img {
     margin: 20px;
     height: calc(100% - 40px);
-    border: 5px solid rgb(167, 35, 35);;
+    border: 5px solid var(--red);
     border-radius: 4px;
     position: relative;
 }
@@ -56,7 +56,7 @@
 .contenedor__contenido-img i {
     position: absolute;
     right: 0;
-    background-color: rgb(167, 35, 35);
+    background-color: var(--red);
     color: rgb(200,200,200, 1);
     font-size: 1.3rem;
     padding: 10px;
@@ -104,17 +104,17 @@
     font-size: 14px;
     display: inline-block;
     color: #111;
-    background: #fff;
+    background: var(--white);
     margin: 0 5px;
     color: #111;
-    border: 2px solid rgb(167, 35, 35);
+    border: 2px solid var(--red);
     border-radius: 4px;
     cursor: pointer;
     transition: .5s;
 }
 
 .contenedor__contenido-descripcion .size > .activo {
-    background: rgb(167, 35, 35);
+    background: var(--red);
 }
 
 .contenedor__contenido-descripcion .precio {
@@ -137,7 +137,7 @@
 
 .contenedor__contenido-descripcion .comprar > a {
     text-decoration: none;
-    border: 2px solid rgb(167, 35, 35);;
+    border: 2px solid var(--red);
     border-radius: 4px;
     color: #000;
     text-align: center;

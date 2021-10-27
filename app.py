@@ -30,6 +30,17 @@ def UserLogueado(view):
 
     return wrapped_view
 
+def Administrador(view):
+    @functools.wraps(view)
+    def wrapped_view(**kwargs):
+        if g.user is not None:
+            if g.user.usuario == "ElPepe":
+                return view(**kwargs)
+        
+        return redirect(url_for('Inicio'))
+    
+    return wrapped_view
+
 @app.before_request
 def UsuarioAutentico():
     user_id = session.get('user_id')
@@ -37,7 +48,6 @@ def UsuarioAutentico():
         g.user = None
     else: 
         g.user = usuario.cargar(user_id)
-        print(g.user.usuario)
 
 @app.route('/inicio/')
 def Inicio():
@@ -80,7 +90,10 @@ def login():
             if ob_usuario.verificar():
                 session.clear
                 session['user_id'] = ob_usuario.usuario
-                return redirect(url_for('Inicio'))  
+                if ob_usuario.usuario == "ElPepe":
+                    return redirect(url_for('dashboard'))
+                else:
+                    return redirect(url_for('Inicio'))  
 
         return render_template('InicioSesion.html', title=title ,mensaje="Usuario o contraseña no valido.", form=formulario)
 
@@ -88,6 +101,12 @@ def login():
 @loginRequerido
 def jugos():
     return render_template('VistasJugos.html', title='Jugos')
+
+@app.route('/dashboard/')
+@Administrador
+def dashboard():
+    return render_template('Dashboard.html', title="Dashboard", listaUsuarios=usuario.listadoUsuarios())
+
 
 @app.route('/logout/')
 @loginRequerido

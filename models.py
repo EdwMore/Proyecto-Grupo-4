@@ -51,3 +51,8 @@ class usuario():
         except Exception as error:
             print("Ha ocurrido un error: " + str(error))
             return False
+ 
+    @staticmethod
+    def listadoUsuarios():
+        sql = "SELECT usuario FROM usuarios ORDER BY id DESC"
+        return db.select(sql, None)

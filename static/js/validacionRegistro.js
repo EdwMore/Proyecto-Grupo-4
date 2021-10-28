@@ -58,6 +58,6 @@ inputs.forEach((input => {
 formulario.addEventListener('submit', (e) => {
 
     if (!(campos.nombre && campos.correo && campos.usuario && campos.contrasena)) {
-        
+        e.preventDefault();
     } 
 });

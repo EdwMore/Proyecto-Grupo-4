@@ -2,53 +2,6 @@
 {% block title%} {{ title }} {% endblock %}
 {% block style %} <link rel="stylesheet" href="{{ url_for('static', filename='css/styleDashboard.css')}}"> {% endblock %}
 {% block contenido %}
-<div class="container">
-    <div class="navegation">
-        <ul>
-            <li>
-                <a href="#">
-                    <span class="icon"><i class="fas fa-mug-hot"></i></span>
-                    <span class="title">Jamba Juice</span>
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <span class="icon"><i class="fas fa-home"></i></span>
-                    <span class="title">Dashboard</span>
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <span class="icon"><i class="fas fa-users"></i></span>
-                    <span class="title">Usuarios</span>
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <span class="icon"><i class="far fa-comment"></i></span>
-                    <span class="title">Mensajes</span>
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <span class="icon"><i class="fas fa-question"></i></span>
-                    <span class="title">Ayuda</span>
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <span class="icon"><i class="fas fa-cog"></i></span>
-                    <span class="title">Configuracion</span>
-                </a>
-            </li>
-            <li>
-                <a href="{{ url_for('logout')}}">
-                    <span class="icon"><i class="fas fa-sign-in-alt"></i></span>
-                    <span class="title">Salir</span>
-                </a>
-            </li>
-        </ul>
-    </div>
 
     <!-- Main -->
     <div class="main">
@@ -56,14 +9,6 @@
             <div class="toggle">
                 <i class="fas fa-bars"></i>
             </div>
-            <!-- Search -->
-            <div class="search">
-                <label>
-                    <input type="text" placeholder="Search here">
-                    <i class="fas fa-search"></i>
-                </label>
-            </div>
-            <!-- User -->
             <div class="nameUser">
                 <span>{{ g.user.usuario }}</span>
                 <div class="user">
@@ -125,10 +70,10 @@
                 <table>
                     <thead>
                         <tr>
-                            <td>Name</td>
-                            <td>Price</td>
-                            <td>Payment</td>
-                            <td>Status</td>
+                            <td>Nombre</td>
+                            <td>Precio</td>
+                            <td>Pago</td>
+                            <td>Estado</td>
                         </tr>
                     </thead>
                     <tbody>
@@ -187,6 +132,6 @@
         </div>
 
     </div>
-</div>
+
 {% endblock %}
 {% block scripts %}<script src="{{ url_for('static', filename='js/dashboard.js')}}"></script> {% endblock %}

@@ -54,5 +54,43 @@ class usuario():
  
     @staticmethod
     def listadoUsuarios():
-        sql = "SELECT usuario FROM usuarios ORDER BY id DESC"
+        sql = "SELECT usuario FROM usuarios ORDER BY id DESC;"
+        return db.select(sql, None)
+
+class Jugo():
+    nombre = ''
+    descripcion = ''
+
+    def __init__(self, p_nombre, p_descripcion):
+        self.nombre = p_nombre
+        self.descripcion = p_descripcion
+    
+    @classmethod
+    def cargar(cls, p_nombre):
+        sql = "SELECT * FROM usuarios WHERE nombre = ?;"
+        try:
+            obj = db.select(sql, [p_nombre])
+
+            if obj:
+                if len(obj) > 0:
+                    return cls(obj[0]["nombre"], obj[0]["descripcion"])
+                
+                return None
+        except:
+            print("Ha ocurrido un error")
+            return None
+    
+    def insertar(self):
+        sql = "INSERT INTO crearJugo (nombreJugo, descripcion) VALUES (?,?);"
+
+        try:
+            afectadas = db.insert(sql, [self.nombre, self.descripcion])
+            return (afectadas > 0)
+        except:
+            print("Ocurrio un error: ")
+            return -1
+    
+    @staticmethod
+    def listadoJugos():
+        sql = "SELECT * FROM crearJugo ORDER BY id;"
         return db.select(sql, None)

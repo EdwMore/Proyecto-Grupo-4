@@ -3,8 +3,8 @@ import functools
 
 from flask import Flask, render_template, request, url_for, g, session
 from werkzeug.utils import redirect
-from forms import FormLogin, FormRegistro
-from models import usuario
+from forms import FormCrearJugo, FormLogin, FormRegistro
+from models import usuario, Jugo
 
 app = Flask(__name__)
 
@@ -100,13 +100,28 @@ def login():
 @app.route('/jugos/')
 @loginRequerido
 def jugos():
-    return render_template('VistasJugos.html', title='Jugos')
+    return render_template('VistasJugos.html', title='Jugos', listaJugos=Jugo.listadoJugos())
 
 @app.route('/dashboard/')
 @Administrador
 def dashboard():
     return render_template('Dashboard.html', title="Dashboard", listaUsuarios=usuario.listadoUsuarios())
 
+@app.route('/crearjugo/', methods=["GET", "POST"])
+def crearJugo():
+    title="Crear Jugo"
+    if request.method == "GET":
+        formulario = FormCrearJugo()
+        return render_template('CrearJugo.html', title=title ,form=formulario)
+    else:
+        formulario = FormCrearJugo(request.form)
+        if formulario.validate_on_submit():
+            ob_jugo = Jugo(formulario.nombre.data, formulario.descripcion.data)
+        if not ob_jugo.nombre.__contains__("'") and not ob_jugo.descripcion.__contains__("'"):
+            if ob_jugo.insertar():
+                return render_template("CrearJugo.html", exito="Su jugo fue creado", form=formulario)
+
+        return render_template('CrearJugo.html', title=title, form=formulario)
 
 @app.route('/logout/')
 @loginRequerido

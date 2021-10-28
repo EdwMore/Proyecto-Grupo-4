@@ -74,6 +74,53 @@
                 </ul>
             </nav>
         </header>
+    {% else %}
+        <div class="navegation">
+            <ul>
+                <li>
+                    <a href="#" class="enlaces2">
+                        <span class="icon"><i class="fas fa-mug-hot"></i></span>
+                        <span class="title">Jamba Juice</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ url_for('dashboard')}}" class="enlaces2">
+                        <span class="icon"><i class="fas fa-home"></i></span>
+                        <span class="title">Dashboard</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="enlaces2">
+                        <span class="icon"><i class="fas fa-users"></i></span>
+                        <span class="title">Usuarios</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="enlaces2"> 
+                        <span class="icon"><i class="far fa-comment"></i></span>
+                        <span class="title">Mensajes</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ url_for('crearJugo')}}" class="enlaces2">
+                        <span class="icon"><i class="fas fa-plus"></i></span>
+                        <span class="title">Crear Jugo</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="enlaces2">
+                        <span class="icon"><i class="fas fa-question"></i></span>
+                        <span class="title">Ayuda</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ url_for('logout')}}" class="enlaces2">
+                        <span class="icon"><i class="fas fa-sign-in-alt"></i></span>
+                        <span class="title">Salir</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
     {% endif %}
     {% block contenido %}
     {% endblock %}

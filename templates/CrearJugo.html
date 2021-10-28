@@ -1,0 +1,35 @@
+{% extends 'Header.html' %}
+{% block title%} {{ title }} {% endblock %}
+{% block style %} <link rel="stylesheet" href="{{ url_for('static', filename='css/styleCrearJugo.css')}}"> {% endblock %}
+{% block contenido %}
+
+<div class="main">
+    <div class="topbar">
+        <div class="toggle">
+            <i class="fas fa-bars"></i>
+        </div>
+    </div>
+
+    <!-- Image -->
+    <div class="formBox">
+        <form action="{{ url_for('crearJugo')}}" method="POST" class="formulario">
+            {{ form.hidden_tag() }}
+            <h2 class="title2">Crear Jugo</h2>
+            <div class="input-field">
+                <i class="fas fa-cocktail"></i>
+                {{ form.nombre(placeholder="Nombre de Jugo")}}
+            </div>
+            <div class="area-field">
+                <i class="fas fa-cocktail"></i>
+                {{ form.descripcion(placeholder="Descripcion del Jugo", rows=3)}}
+            </div>
+            {{ form.enviar(class="btn")}}
+        </form>
+        {% if exito %}
+            <h3>{{ exito }}</h3>
+        {% endif %}
+    </div>
+</div>
+
+{% endblock %}
+{% block scripts %}<script src="{{ url_for('static', filename='js/dashboard.js')}}"></script> {% endblock %}

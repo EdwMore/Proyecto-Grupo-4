@@ -7,12 +7,31 @@ toggle.addEventListener('click', function () {
     main.classList.toggle('active');
 });
 
+let formularioCrear = document.querySelector('.formulario');
+let input = document.getElementById('nombre');
+let inputArea = document.getElementById('descripcion');
+let btn = document.querySelector('.formulario .btn');
 
+let titleJugo = false;
+let descripcionJugo = false;
 
+input.addEventListener('keyup', () => {
+    if (input.value.length > 0) {
+        titleJugo = true;
+    }
+});
 
-let list = document.querySelectorAll('.navegation li');
-function activeLink() {
-    list.forEach((item) => item.classList.remove('hovered'));
-    this.classList.add('hovered')
-}
-list.forEach((item => item.addEventListener('mouseover', activeLink)))
+inputArea.addEventListener('keyup', () => {
+    if (inputArea.value.length > 0) {
+        descripcionJugo = true;
+    } 
+});
+
+formularioCrear.addEventListener('submit', (e) => {
+    if (titleJugo && descripcionJugo) {
+        formularioCrear.reset();
+    } else {
+        e.preventDefault();
+        btn.classList.add('novalidate');
+    }
+});

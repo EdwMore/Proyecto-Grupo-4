@@ -1,7 +1,7 @@
 .container {
     position: relative;
     width: 100%;
-    height: calc(100vh - 80px);
+    height: 100%;
 }
 
 .containerMain {
@@ -13,6 +13,7 @@
 
 .main {
     width: 80%;
+    margin: 20px 0;
     background: var(--white);
     box-shadow: 0 7px 25px rgb(0, 0, 0, 0.08);
     border-radius: 5px;
@@ -28,7 +29,7 @@
     grid-template-rows: 60vh;
     background: var(--white);
     margin-top: 10px;
-    margin-right: 10px;
+    border-bottom: 1px solid var(--black2);
 }
 
 .contenedor__cajas:last-child {

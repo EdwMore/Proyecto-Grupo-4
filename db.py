@@ -18,7 +18,6 @@ def insert(_sql, lista):
             ob_cursor.close
             con.commit()
             con.close()
-
             return filas
         
         else:

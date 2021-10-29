@@ -16,6 +16,6 @@ class FormLogin(FlaskForm):
     enviar = SubmitField('Iniciar Sesion')
 
 class FormCrearJugo(FlaskForm): 
-    nombre = StringField()
-    descripcion = TextAreaField()
+    nombre = StringField(validators=[validators.required()])
+    descripcion = TextAreaField(validators=[validators.required()])
     enviar = SubmitField()

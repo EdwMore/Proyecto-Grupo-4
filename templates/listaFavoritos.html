@@ -1,0 +1,62 @@
+{% extends 'Header.html' %}
+{% block title%} {{ title }} {% endblock %}
+{% block style %} <link rel="stylesheet" href="{{ url_for('static', filename='css/styleDeseados.css')}}"> {% endblock %}
+{% block contenido %}
+<div class="container">
+    <div class="containerMain">
+        <div class="main">
+            <h2>Tus Platos Favoritos</h2>
+            <div class="contenedor__cajas">
+                <div class="contenedor__contenido-img">
+                    <img src="{{ url_for('static', filename='images/bebida.png')}}">
+                    <i class="fas fa-star"></i>
+                </div>
+                <div class="contenedor__contenido-descripcion">
+                    <h2>nombreJugo</h2>
+                    <h3>Descripcion:</h3>
+                    <p>descripcion</p>
+                    <div class="size">
+                        <h3>Tamaño(oz) :</h3>
+                        <span>8</span>
+                        <span>12</span>
+                        <span>16</span>
+                        <span>20</span>
+                    </div>
+                    <div class="precio">
+                        <h3>Precio :</h3>
+                        <span>2.000</span>
+                    </div>
+                    <div class="comprar">
+                        <a href="#">Comprar</a>
+                    </div>
+                </div>
+            </div>
+            <div class="contenedor__cajas">
+                <div class="contenedor__contenido-img">
+                    <img src="{{ url_for('static', filename='images/bebida.png')}}">
+                    <i class="fas fa-star"></i>
+                </div>
+                <div class="contenedor__contenido-descripcion">
+                    <h2>nombreJugo</h2>
+                    <h3>Descripcion:</h3>
+                    <p>descripcion</p>
+                    <div class="size">
+                        <h3>Tamaño(oz) :</h3>
+                        <span>8</span>
+                        <span>12</span>
+                        <span>16</span>
+                        <span>20</span>
+                    </div>
+                    <div class="precio">
+                        <h3>Precio :</h3>
+                        <span>2.000</span>
+                    </div>
+                    <div class="comprar">
+                        <a href="#">Comprar</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

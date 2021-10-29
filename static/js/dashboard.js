@@ -29,9 +29,8 @@ inputArea.addEventListener('keyup', () => {
 
 formularioCrear.addEventListener('submit', (e) => {
     if (titleJugo && descripcionJugo) {
-        formularioCrear.reset();
+    
     } else {
         e.preventDefault();
-        btn.classList.add('novalidate');
     }
 });

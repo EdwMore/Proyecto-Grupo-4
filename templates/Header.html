@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="{{ url_for('static', filename='images/logoRestaurant.png')}}">
     {% block style %} {% endblock %}
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.0/font/bootstrap-icons.css">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/styleHeader.css')}}">
     <script src="https://kit.fontawesome.com/f9185ec6ba.js" crossorigin="anonymous"></script>
     <title> {% block title %} {% endblock %} </title>
@@ -60,7 +62,7 @@
                             </a>
                             <ul class="sub-menu">
                                 <li>
-                                    <a href="#">Perfil</a>
+                                    <a href="{{ url_for('perfil_de_usuario')}}">Perfil</a>
                                 </li>
                                 <li>
                                     <a href="#">Lista de deseos</a>
@@ -125,6 +127,119 @@
     {% block contenido %}
     {% endblock %}
     {% block scripts %} {% endblock %}
-    <script src="{{ url_for('static', filename='js/animaciones.js')}}"></script>
-</body>
+        
+    <!--========================================================== -->
+                        <!-- INTRODUCCION DE SERVICIOS-->
+    <!--========================================================== -->
+
+
+    <section class="d-flex flex-column justify-content-center align-items-center pt-5  text-center w-50 m-auto" id="intro">
+    <h1 class="p-3 fs-2 border-top border-3">Los jugos naturales mas deliciosos que existen siempre preparados con las <span class="text-primary">Frutas Mas Frescas</span></h1>
+     <p class="p-3  fs-4">
+         <span class="text-primary">Jamba Juice</span> somos la cadena de jugos naturales entregada a sus clientes y sus gustos con los jugos mas deliciosos ◠﹏◠         
+     </p>   
+    </section>
+
+   <!--========================================================== -->
+                        <!-- TIPOS DE SERVICIOS-->
+    <!--========================================================== -->
+
+
+<section class="w-100">
+    <div class="row w-75 mx-auto" id="servicios-fila-1">       
+        <div class="col-lg-6 col-md-12 col-sm-12 d-flex justify-content-start my-5 icono-wrap">
+            <img src="{{ url_for('static',filename='images/nutricion.png') }}" alt="desarrollo"   width="180" height="160">
+
+            <div>
+                <h3 class="fs-5 mt-4 px-4 pb-1">Nutricion</h3>
+                <p class="px-4">La nutricion es un pilar fundamental de nuestra filosofia, extraemos el maximo de nutrientes y vitaminas de los vegetales y las frutas en cada uno de nuestros jugos</p>
+            </div>
+
+        </div>
+
+        <div class="col-lg-6 col-md-12 col-sm-12 d-flex justify-content-start  my-5 icono-wrap">
+            <img src="{{ url_for('static',filename='images/variedad.png') }}" alt="concepto" width="180" height="160">
+
+            <div>
+                <h3 class="fs-5 mt-4 px-4 pb-1 icono-wrap">Diversidad</h3>
+                <p class="px-4">Variedad, ortro de nuestros pilares es la variedad de sabores y gracias a nuestra ubicacion estrategica obtenemos frutas y verduaras de todas las regiones del pais disponiblews todo el año </p>
+            </div>
+        </div>   
+    </div>
+    
+    <div class="row w-75 mx-auto mb-5" id="servicios-fila-2">       
+        <div class="col-lg-6 col-md-12 col-sm-12 d-flex justify-content-start  my-5 icono-wrap">
+            <img src="{{ url_for('static',filename='images/amabilidad.png') }}" alt="comunicaciones" width="180" height="160">
+
+            <div>
+                <h3 class="fs-5 mt-4 px-4 pb-1">Amabilidad</h3>
+                <p class="px-4">Cortesia, por ultimo pero no menos importante, la amabilidad en la atencion con nuestros clientes nos caracteriza</p>
+            </div>
+        </div>
+
+        
+    </div>
+</section>
+
+<!--========================================================== -->
+                        <!-- SECCION ACERCA DE NOSOTROS-->
+<!--========================================================== -->
+
+<section>
+    <div class="container w-50 m-auto text-center" id="equipo">
+        <h1 class="mb-5 fs-4">Equipo pequeño con mucho <span class="text-primary">sabor y dulsura</span>.</h1>
+        <p class="fs-4 ">Siempre buscamos las personas adecuadas para que trabajen con nosotros. Si te sientes listo para este reto, te esperamos para que te unas a nosotros.</p>
+    </div>
+
+    <div class="mt-5 text-center">
+        <img id="img-equipo" src="{{ url_for('static',filename='images/equipo.png') }}" alt="equipo">
+    </div>
+
+    <div id="local" class="border-top border-2">
+        <div class="mapa"> </div>
+        <div>
+            <div class="wrapper-local">
+                <h2>Ubicados en toda Colombia</h2>
+                <h2 class="text-primary mb-4" id="typewriter"></h2>
+                <p class="fs-5 text-body">Elijimos Colombia por ser uno de los paises mas biodiversos del mundo y por sus diferentes regiones climaticas. ¡Visitennos y no se arrepentiran!</p>
+                <section class="d-flex justify-content-start" id="numeros-local">
+                    <div>
+                        <p class="text-primary fs-5">248</p>
+                        <p>Dias de Sol</p>
+                    </div>
+                    <div>
+                        <p class="text-primary fs-5">100%</p>
+                        <p>Aprobado</p>
+                    </div>
+                    <div>
+                        <p class="text-primary fs-5">20 °C</p>
+                        <p>Temperatura promedio</p>
+                    </div>
+              </section>
+            </div>
+        </div>
+    </div>
+
+</section>
+
+
+<!--========================================================== -->
+                        <!--FOOTER-->
+<!--========================================================== -->
+
+
+<footer class="w-100  d-flex  align-items-center justify-content-center flex-wrap">
+  <p class="fs-5 px-3  pt-3">Jamba Juice &copy; Todos Los Derechos Reservados 2021</p>
+  <div id="iconos" >
+      <a href="#"><i class="bi bi-facebook"></i></a>
+      <a href="#"><i class="bi bi-twitter"></i></a>
+      <a href="#"><i class="bi bi-instagram"></i></a>  
+  </div>
+</footer>
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script> 
+    <script src="https://unpkg.com/typewriter-effect@latest/dist/core.js"></script>
+    <script src="animaciones.js"></script>
+  </body>
 </html>

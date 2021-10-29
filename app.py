@@ -58,6 +58,11 @@ def Inicio():
 def Header():
     return redirect(url_for('Inicio'))
 
+@app.route('/perfil/')
+def perfil_de_usuario():
+    return render_template('perfil_de_usuario.html')
+
+
 @app.route('/registro/', methods=["GET", "POST"])
 @UserLogueado
 def registro():

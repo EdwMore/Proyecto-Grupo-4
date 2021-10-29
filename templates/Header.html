@@ -63,7 +63,7 @@
                                     <a href="#">Perfil</a>
                                 </li>
                                 <li>
-                                    <a href="#">Lista de deseos</a>
+                                    <a href="{{ url_for('listaDeseados')}}">Lista de deseos</a>
                                 </li>
                                 <li>
                                     <a href="{{ url_for('logout')}}">Salir</a>
@@ -90,7 +90,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="#" class="enlaces2">
+                    <a href="{{ url_for('editarUsuarios')}}" class="enlaces2">
                         <span class="icon"><i class="fas fa-users"></i></span>
                         <span class="title">Usuarios</span>
                     </a>

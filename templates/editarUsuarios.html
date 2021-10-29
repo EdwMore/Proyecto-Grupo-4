@@ -1,0 +1,50 @@
+{% extends 'Header.html' %}
+{% block title%} {{ title }} {% endblock %}
+{% block style %} <link rel="stylesheet" href="{{ url_for('static', filename='css/styleUsuarios.css')}}"> {% endblock %}
+{% block contenido %}
+
+<div class="main">
+    <div class="topbar">
+        <div class="toggle">
+            <i class="fas fa-bars"></i>
+        </div>
+    </div>
+
+    <div class="userBox">
+        <div class="titleBx">
+            <h2>Usuarios</h2>
+        </div>        
+        <table>
+            <thead>
+                <tr>
+                    <td>Imagen</td>
+                    <td>Nombre</td>
+                    <td>Usuario</td>
+                    <td>Rol</td>
+                    <td>Eliminar</td>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in listaUsuarios %}
+                    <tr>
+                        <td width="50px"><div class="imgBx"><img src="{{ url_for('static', filename='images/user.jpg')}}"></div></td>
+                        <td><span>{{ item.nombre }}</span></td>
+                        <td><span>{{ item.usuario }}</span></td>
+                        <td class="menuContainer">
+                            <i class="far fa-edit edit"></i>
+                            <ul class="menu-Rol">
+                                <li><a href="#">Usuario</a></li>
+                                <li><a href="#">Administrador</a></li>
+                                <li><a href="#">SuperAdministrador</a></li>
+                            </ul>
+                        </td>
+                        <td><a href="{{ url_for('eliminarUsuario', id=item.id)}}"><i class="far fa-trash-alt delete"></i></a></td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>  
+</div>
+
+{% endblock %}
+{% block scripts %}<script src="{{ url_for('static', filename='js/dashboard.js')}}"></script> {% endblock %}

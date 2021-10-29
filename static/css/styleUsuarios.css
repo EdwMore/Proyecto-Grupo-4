@@ -1,0 +1,170 @@
+.main {
+    position: absolute;
+    width: calc(100% - 300px);
+    left: 300px;
+    min-height: 100vh;
+    background: var(--white);
+    transition: .5s;
+}
+
+.main.active {
+    width: calc(100% - 80px);
+    left: 80px;
+}
+
+.topbar {
+    width: 100%;
+    height: 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10px;
+}
+
+.toggle {
+    position: relative;
+    top: 0;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2em;
+    cursor: pointer;
+}
+
+/* Users */
+
+.userBox {
+    margin: 20px;
+    position: relative;
+    display: grid;
+    min-width: 500px;
+    background: var(--white);
+    padding: 20px;
+    box-shadow: 0 7px 25px rgb(0 0 0 / 8%);
+    border-radius: 20px;
+}
+
+.userBox .titleBx {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.userBox .titleBx h2 {
+    font-weight: 600;
+}
+
+.userBox table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+.userBox table thead {
+    position: sticky;
+    top: 0;
+    z-index: 100000;
+}
+
+.userBox table thead tr {
+    background-color: var(--red);
+    color: var(--white);
+    height: 60px;
+}
+
+.userBox table thead td {
+    font-weight: 600;
+}
+
+.userBox table tr {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.userBox table tr td {
+    padding: 10px;
+}
+
+.imgBx {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.imgBx img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.userBox table thead tr:first-child,
+.userBox table tbody tr:last-child {
+    border-bottom: none;
+}
+
+.userBox table tr td:nth-child(2),
+.userBox table tr td:nth-child(3),
+.userBox table tr td:nth-child(4),
+.userBox table tr td:nth-child(5) {
+    text-align: center;
+}
+
+.userBox table tbody tr td i {
+    border: 1px solid;
+    border-radius: 4px;
+    padding: 5px;
+    width: 100%;
+    cursor: pointer;
+}
+
+.userBox table tbody tr td .edit {
+    color: rgb(34, 247, 15);
+    border-color: rgb(34, 247, 15);
+}
+
+.userBox table tbody tr td .delete {
+    color: #f00;
+    border-color: #f00;
+}
+
+.menuContainer {
+    position: relative;
+}
+
+.menuContainer > i {
+    padding-bottom: 10px;
+}
+
+.menu-Rol {
+    position: absolute;
+    list-style: none;
+    bottom: -112px;
+    border-radius: 5px;
+    left: 9;
+    width: 180px;
+    background: var(--red);
+    padding: 6px;
+    z-index: 1000;
+    visibility: hidden;
+    opacity: 0;
+    transition: .1s;
+}
+
+.menu-Rol a {
+    text-decoration: none;
+    color: var(--white);
+    height: 100%;
+    width: 100%;
+}
+
+.menu-Rol li {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    padding: 10px 0;
+}
+
+.menuContainer:hover .menu-Rol {
+    opacity: 1;
+    visibility: visible;
+}

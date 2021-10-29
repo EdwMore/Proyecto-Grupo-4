@@ -102,26 +102,48 @@ def login():
 def jugos():
     return render_template('VistasJugos.html', title='Jugos', listaJugos=Jugo.listadoJugos())
 
+@app.route('/listadeseados/')
+def listaDeseados():
+    return render_template('listaFavoritos.html', title='Deseados')
+
 @app.route('/dashboard/')
 @Administrador
 def dashboard():
     return render_template('Dashboard.html', title="Dashboard", listaUsuarios=usuario.listadoUsuarios())
 
 @app.route('/crearjugo/', methods=["GET", "POST"])
+@Administrador
 def crearJugo():
     title="Crear Jugo"
     if request.method == "GET":
         formulario = FormCrearJugo()
-        return render_template('CrearJugo.html', title=title ,form=formulario)
+        print("Entro")
+        return render_template('CrearJugo.html', title=title, form=formulario)
     else:
         formulario = FormCrearJugo(request.form)
         if formulario.validate_on_submit():
             ob_jugo = Jugo(formulario.nombre.data, formulario.descripcion.data)
+
         if not ob_jugo.nombre.__contains__("'") and not ob_jugo.descripcion.__contains__("'"):
             if ob_jugo.insertar():
-                return render_template("CrearJugo.html", exito="Su jugo fue creado", form=formulario)
+                print(ob_jugo.nombre)
+                return render_template("CrearJugo.html", title=title, exito="Su jugo fue creado", form=formulario)
 
         return render_template('CrearJugo.html', title=title, form=formulario)
+    
+@app.route('/editarUsuarios/')
+def editarUsuarios():
+    title="Editar Usuarios"
+    return render_template('editarUsuarios.html', title=title, listaUsuarios=usuario.listadoUsuarios())
+
+@app.route('/editarUsuarios/eliminar/<id>')
+def eliminarUsuario(id):
+    delete = usuario.eliminarUsuario(id)
+    if delete:
+        return redirect(url_for('editarUsuarios'))
+    
+    return redirect(url_for('editarUsuarios'))
+
 
 @app.route('/logout/')
 @loginRequerido

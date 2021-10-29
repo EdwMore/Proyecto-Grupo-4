@@ -49,12 +49,25 @@ class usuario():
                     if check_password_hash(ob_usuario[0]["password"], self.password):
                         return True
         except Exception as error:
-            print("Ha ocurrido un error: " + str(error))
+            print("Ha ocurrido un error: ")
+            return False
+
+    @staticmethod
+    def eliminarUsuario(id):
+        sql = "DELETE FROM usuarios WHERE id = ?;"
+
+        try:
+            delete = db.insert(sql, [id])
+            print(len(delete))
+            if len(delete) > 0: 
+                return True
+        except:
+            print("Ha ocurrido un error al eliminar: ")
             return False
  
     @staticmethod
     def listadoUsuarios():
-        sql = "SELECT usuario FROM usuarios ORDER BY id DESC;"
+        sql = "SELECT id, nombre, usuario FROM usuarios ORDER BY id DESC;"
         return db.select(sql, None)
 
 class Jugo():
@@ -92,5 +105,5 @@ class Jugo():
     
     @staticmethod
     def listadoJugos():
-        sql = "SELECT * FROM crearJugo ORDER BY id;"
+        sql = "SELECT * FROM crearJugo ORDER BY id DESC;"
         return db.select(sql, None)
